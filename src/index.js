@@ -4,13 +4,12 @@ import './index.css';
 import App from './App';
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 ReactDOM.render(
  
   <React.StrictMode>
    <BrowserRouter>
    <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<App/>} />
      
      { /*no matching*/ }
      <Route path="*" element={

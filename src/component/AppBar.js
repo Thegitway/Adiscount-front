@@ -1,4 +1,4 @@
-import { Navbar,Container,Col,Row,Form,Dropdown } from "react-bootstrap";
+import { Navbar,Container,Image,Col,InputGroup,Button,Row,Form,Dropdown } from "react-bootstrap";
 import {useEffect,useState} from 'react'
 export default function AppBar()
 { const [width, setWidth]   = useState(window.innerWidth);
@@ -14,7 +14,6 @@ export default function AppBar()
    
   return(
     <Navbar style={{"backgroundColor":"#293847"}}>
-    
       <Navbar.Brand href="#home">
         <img
           alt=""
@@ -23,27 +22,28 @@ export default function AppBar()
           className="d-inline-block align-top"
         />
       </Navbar.Brand>
-
-      <Container >
-      
-      <Col md={8}>
-      <Form.Control  placeholder="Qu'est ce qui vous ferait plaisir ?" />
+      <Col xs={7}>
+      <InputGroup>
+      <Form.Control  placeholder="Qu'est ce qui vous ferait plaisir ?"/>
+      </InputGroup>
       </Col>
-      <Col md={3}>
+      <Col xs={1}>
+      </Col>
+      <Col xs={3}>
+      <Navbar.Collapse id="basic-navbar-nav">
       <Dropdown>
-  <Dropdown.Toggle variant="success" id="dropdown-basic">
-    Dropdown Button
+  <Dropdown.Toggle style={{"borderColor":"#293847","backgroundColor":"#293847",}} id="dropdown-basic">
+    Adiscount
   </Dropdown.Toggle>
-
-  <Dropdown.Menu>
+  
+  <Dropdown.Menu >
     <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
     <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
   </Dropdown.Menu>
-</Dropdown></Col>
-      
-      </Container>
-   
+</Dropdown>
+</Navbar.Collapse>
+</Col>
   </Navbar> 
   );
 }
