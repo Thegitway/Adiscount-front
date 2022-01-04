@@ -10,7 +10,6 @@ ReactDOM.render(
    <BrowserRouter>
    <Routes>
       <Route path="/" element={<App/>} />
-     
      { /*no matching*/ }
      <Route path="*" element={
        <h1>No element found!</h1>

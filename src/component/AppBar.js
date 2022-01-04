@@ -2,10 +2,8 @@ import { Navbar,Container,Image,Col,InputGroup,Button,Row,Form,Dropdown } from "
 import {useEffect,useState} from 'react'
 export default function AppBar()
 { const [width, setWidth]   = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
   const updateDimensions = () => {
       setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
   }
   useEffect(() => {
       window.addEventListener("resize", updateDimensions);
@@ -24,7 +22,7 @@ export default function AppBar()
       </Navbar.Brand>
       <Col xs={7}>
       <InputGroup>
-      <Form.Control  placeholder="Qu'est ce qui vous ferait plaisir ?"/>
+      <Form.Control placeholder="Qu'est ce qui vous ferait plaisir ?"/>
       </InputGroup>
       </Col>
       <Col xs={1}>
