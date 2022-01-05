@@ -22,16 +22,15 @@ export default function AppBar()
   margin: 2px;
   padding:10px;
   border-radius: 10px;
-  `
+`
   const Input=styled.input`
   width: 100%;
   background-color: rgb(245,246,246);
   border: 0px;
   &:focus {
         outline: none;
-       
   }
-  `
+`
    
   return(
     <Navbar style={{"backgroundColor":"#293847"}}>
