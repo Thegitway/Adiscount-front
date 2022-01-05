@@ -1,5 +1,5 @@
 
-import Todo from './Todo';
+import Todo from '../component/Todo';
 import {v4} from 'uuid';
 import {Link} from 'react-router-dom';
 import {useState,useRef} from 'react';
@@ -18,20 +18,21 @@ height: 5vh;
 align-items: center;
 justify-content: center;
 display: flex;
-background-color: aliceblue;
+margin-top: 2vh;
+
 `
   return (
    <>
    <div><Link to="/"><Container>Adiscount</Container></Link></div>
 
-   <form onSubmit={(e)=>{
+   <Container><form onSubmit={(e)=>{
          e.preventDefault();
      setTodoList([...todoList,
      {id:v4(),data:inputRef.current.value}])
      inputRef.current.value=''   
      }}>
    <input ref={inputRef} type="text"></input>
-   </form>
+   </form></Container>
    <br/>
    { 
      todoList.map((item)=>{

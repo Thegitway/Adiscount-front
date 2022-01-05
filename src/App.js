@@ -1,10 +1,8 @@
 
-import {v4} from 'uuid';
-import {Link} from 'react-router';
-import AppBar from './component/AppBar';
-import AddList from './component/AddList'
+
+import Home from './pages/Home';
 function App() {
-return <AddList/>
+return <Home/>
 }
 
 export default App;

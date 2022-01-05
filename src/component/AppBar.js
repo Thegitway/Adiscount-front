@@ -1,5 +1,7 @@
-import { Navbar,Container,Image,Col,InputGroup,Button,Row,Form,Dropdown } from "react-bootstrap";
+import { Navbar,Col,Dropdown } from "react-bootstrap";
 import {useEffect,useState} from 'react'
+import { Search } from "@material-ui/icons";
+import styled from 'styled-components';
 export default function AppBar()
 { const [width, setWidth]   = useState(window.innerWidth);
   const updateDimensions = () => {
@@ -9,6 +11,27 @@ export default function AppBar()
       window.addEventListener("resize", updateDimensions);
       return () => window.removeEventListener("resize", updateDimensions);
   }, []);
+
+  const SearchContainer=styled.div`
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  background-color: rgb(245,246,246);
+  margin: 2px;
+  padding:10px;
+  border-radius: 10px;
+  `
+  const Input=styled.input`
+  width: 100%;
+  background-color: rgb(245,246,246);
+  border: 0px;
+  &:focus {
+        outline: none;
+       
+  }
+  `
    
   return(
     <Navbar style={{"backgroundColor":"#293847"}}>
@@ -21,13 +44,14 @@ export default function AppBar()
         />
       </Navbar.Brand>
       <Col xs={7}>
-      <InputGroup>
-      <Form.Control placeholder="Qu'est ce qui vous ferait plaisir ?"/>
-      </InputGroup>
+      <SearchContainer>
+        <Input/>
+      <Search/></SearchContainer>
+     
       </Col>
       <Col xs={1}>
       </Col>
-      <Col xs={3}>
+      <Col xs={1}>
       <Navbar.Collapse id="basic-navbar-nav">
       <Dropdown>
   <Dropdown.Toggle style={{"borderColor":"#293847","backgroundColor":"#293847",}} id="dropdown-basic">
@@ -35,10 +59,8 @@ export default function AppBar()
   </Dropdown.Toggle>
   
   <Dropdown.Menu >
-    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
+    <Dropdown.Item href="/addList">Go to AddList Page</Dropdown.Item>
+    </Dropdown.Menu>
 </Dropdown>
 </Navbar.Collapse>
 </Col>
