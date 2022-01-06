@@ -3,17 +3,10 @@ import {useEffect,useState} from 'react'
 import { Search, SearchOutlined } from "@material-ui/icons";
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
-export default function AppBar()
-{ const [width, setWidth]   = useState(window.innerWidth);
-  const updateDimensions = () => {
-      setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-      window.addEventListener("resize", updateDimensions);
-      return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
 
-  const SearchContainer=styled.div`
+
+
+const SearchContainer=styled.div`
   width: 100%;
   height: 5vh;
   display: flex;
@@ -24,17 +17,25 @@ export default function AppBar()
   padding:10px;
   border-radius: 10px;
 `
-  const Input=styled.input`
-  width: 100%;
-  background-color: rgb(245,246,246);
-  border: 0px;
-  &:focus {
-        outline: none;
-  }
+const Input=styled.input`
+width: 100%;
+background-color: rgb(245,246,246);
+border: 0px;
+&:focus {
+      outline: none;
+}
 `
+export default function AppBar()
+{ 
+  const [width, setWidth]   = useState(window.innerWidth);
+  const updateDimensions = () => {
+      setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+      window.addEventListener("resize", updateDimensions);
+      return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
-
-   
   return(
     <Navbar style={{"backgroundColor":"#293847"}}>
       <Navbar.Brand  >

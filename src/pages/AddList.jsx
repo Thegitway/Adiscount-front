@@ -5,11 +5,6 @@ import {Link} from 'react-router-dom';
 import {useState,useRef} from 'react';
 import styled from 'styled-components';
 
-export default function AddList() {
-var [todoList,setTodoList]=useState([])
-
-var inputRef=useRef('');
-
 
 //style
 const Container = styled.div`
@@ -21,6 +16,14 @@ display: flex;
 margin-top: 2vh;
 
 `
+
+export default function AddList() {
+var [todoList,setTodoList]=useState([])
+
+var inputRef=useRef('');
+
+
+
   return (
    <>
    <div><Link to="/home"><Container>Adiscount</Container></Link></div>

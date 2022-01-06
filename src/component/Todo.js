@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Todo(props)
-{
+
 //style
 const Container = styled.div`
 width:100%;
@@ -28,6 +27,10 @@ color: white; font-size: 16px; line-height: 16px; padding: 6px; border-radius: 1
  border:0;
  background-color: rgb(206,109,75);
 `
+
+export default function Todo(props)
+{
+
   return(
     <Container>
     <Bloc flex="3"></Bloc>
