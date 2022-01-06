@@ -23,7 +23,7 @@ margin-top: 2vh;
 `
   return (
    <>
-   <div><Link to="/"><Container>Adiscount</Container></Link></div>
+   <div><Link to="/home"><Container>Adiscount</Container></Link></div>
 
    <Container><form onSubmit={(e)=>{
          e.preventDefault();

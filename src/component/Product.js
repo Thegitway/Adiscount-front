@@ -2,13 +2,14 @@ import styled from "styled-components"
 
 export const Product = (props) => {
 
-  const Scaffold=styled.div`
+  const Scaffold=styled.a`
   flex:${props.flex};
   margin:3%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
   background-color: white;
   border-radius: 20px;
 `
@@ -22,6 +23,7 @@ const Image=styled.img`
 
 const Info=styled.h5`
 margin:4px;
+color: black;
 display: flex;
 `
 const Price=styled.p`
@@ -31,8 +33,10 @@ color:red
 `
 
 
+
   return (
-    <Scaffold>
+    
+    <Scaffold href="/addList">
     <Image src={props.url}></Image>
     <Info>{props.name}</Info>
     <Price>{props.price}</Price>

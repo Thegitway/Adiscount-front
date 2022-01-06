@@ -1,7 +1,8 @@
-import { Navbar,Col,Dropdown } from "react-bootstrap";
+import { Navbar,Col,Row,Dropdown } from "react-bootstrap";
 import {useEffect,useState} from 'react'
-import { Search } from "@material-ui/icons";
+import { Search, SearchOutlined } from "@material-ui/icons";
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
 export default function AppBar()
 { const [width, setWidth]   = useState(window.innerWidth);
   const updateDimensions = () => {
@@ -31,16 +32,19 @@ export default function AppBar()
         outline: none;
   }
 `
+
+
    
   return(
     <Navbar style={{"backgroundColor":"#293847"}}>
-      <Navbar.Brand href="#home">
+      <Navbar.Brand  >
+      <Link to="/home">
         <img
           alt=""
           src="/Adiscount-logo.png"
           width={width/6}
           className="d-inline-block align-top"
-        />
+        /></Link>
       </Navbar.Brand>
       <Col xs={7}>
       <SearchContainer>
@@ -58,11 +62,14 @@ export default function AppBar()
   </Dropdown.Toggle>
   
   <Dropdown.Menu >
+  <Dropdown.Item href="/addProduct">Add product</Dropdown.Item>
+
     <Dropdown.Item href="/addList">Go to AddList Page</Dropdown.Item>
     </Dropdown.Menu>
 </Dropdown>
 </Navbar.Collapse>
 </Col>
-  </Navbar> 
+  </Navbar>
+  
   );
 }
