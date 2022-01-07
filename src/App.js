@@ -7,7 +7,7 @@ export default function App() {
   const Scaffold=styled.div`
   
   width: 100%;
-  background-color: rgb(245,245,245);
+  background-color: white;
   `
 
 const navigate = useNavigate()
@@ -17,7 +17,7 @@ useEffect(()=>{
 },[]);
 
   return (
-    <Scaffold>
+    <Scaffold >
       <AppBar></AppBar>
      <Outlet/>
       </Scaffold>

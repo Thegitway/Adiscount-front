@@ -6,6 +6,8 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddList from './pages/AddList';
 import Home from './pages/Home.jsx';
+import Details from './pages/Details'
+import AddProduct from './pages/AddProduct';
 ReactDOM.render(
  
   <React.StrictMode>
@@ -13,7 +15,10 @@ ReactDOM.render(
    <Routes>
       <Route path="/" element={<App/>}>
       <Route path="/home" element={<Home/>}/>
-       <Route path="/addList" element={<AddList/>}/>
+      <Route path="/addList" element={<AddList/>}/>
+      <Route path="/details" element={<Details/>}/>
+      <Route path="/addProduct" element={<AddProduct/>}/>
+
       </Route>
      
 

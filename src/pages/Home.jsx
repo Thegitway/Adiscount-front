@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled,{keyframes} from "styled-components";
 import PubBar from "../component/pubBar.js";
 import { Product } from "../component/Product";
 import CategoryBar from "../component/CategoryBar";
@@ -9,17 +9,38 @@ import { v4 } from "uuid";
 const Scaffold=styled.div`
   
   width: 100%;
-  background-color: rgb(245,245,245);
-  
+  background-color: white;
   `
   
   
 const Row=styled.div`
 display: flex;
-height: 50vh;
+height: 60vh;
 width: 100%; 
 `
 
+const ContainerImage=styled.div`
+display: flex;
+margin-top: 5%;
+align-items: center;
+justify-content: center;
+`
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const Rotate = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 8rem 1rem;
+  font-size: 1.2rem;
+`;
 export default function Home() {
 
 
@@ -31,7 +52,7 @@ export default function Home() {
    })
        
   },[])
-  
+let productperRow=5
 let vuPro=[]
 let vuRow=[]
 
@@ -47,24 +68,25 @@ const t= () =>
   
 }
 
-
+if(products.length!=0)
+{
   return (
     <Scaffold> 
 
       <PubBar></PubBar>
-
+    
       <CategoryBar category={t()} ></CategoryBar>
       
       {  
         products.map((item,index)=>
          {
-      if(vuPro.length<5)
-         vuPro.push(<Product key={v4()} flex="1" name={item.info} price={`${item.price} ${item.unite}`} id={item.pictureId}/>)
+      if(vuPro.length<productperRow)
+         vuPro.push(<Product key={v4()} id={item.id} flex="1" name={item.info} price={`${item.price} ${item.unite}`} pid={item.pictureId}/>)
        else
        {
          vuRow.push(<Row key={v4()}>{vuPro}</Row>)
          vuPro=[]
-         vuPro.push(<Product key={v4()} flex="1" name={item.info} price={`${item.price} ${item.unite}`} id={item.pictureId}/>)
+         vuPro.push(<Product key={v4()} id={item.id} flex="1" name={item.info} price={`${item.price} ${item.unite}`} pid={item.pictureId}/>)
        }
 
       if(index>=products.length-1)
@@ -73,15 +95,24 @@ const t= () =>
         {
           vuRow.push(<Row key={v4()}>{vuPro}</Row>)
          vuPro=[]
-         vuPro.push(<Product key={v4()} flex="1" name={item.info} price={`${item.price} ${item.unite}`} id={item.pictureId}/>)
+         vuPro.push(<Product key={v4()} id={item.id} flex="1" name={item.info} price={`${item.price} ${item.unite}`} pid={item.pictureId}/>)
 
         }
       return vuRow
       } 
          })    
     }
-    
+
       </Scaffold>
     
-  )
+  )}else 
+  {
+    return <Scaffold>
+     <ContainerImage>
+     <Rotate> LOADING... PLEASE STOP 🤢!!!</Rotate>
+     </ContainerImage>{/* <ContainerImage>
+      <img src="loading.gif"/>
+    </ContainerImage> */}
+    </Scaffold>
+  }
 }

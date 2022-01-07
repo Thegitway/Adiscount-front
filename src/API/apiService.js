@@ -1,4 +1,4 @@
-const baseUrl="https://localhost:5000/api"
+const baseUrl="http://localhost:5003/api"
 
 export async function getClient()
     {
@@ -26,4 +26,32 @@ export async function getClient()
       var rep= await fetch(baseUrl+"/product")
       var data=rep.json()
       return data;
+    }
+    export async function getProductId(id)
+    {
+      var rep= await fetch(baseUrl+`/product/${id}`)
+      var data=rep.json()
+      return data;
+    }
+
+    export async function createProduct(product)
+    {
+       var res=await fetch(baseUrl+"/product/add", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify(product)
+          })
+          var data= await res.json();
+return data
+    }
+
+    export async function createPic(pic)
+    {
+       var res= await fetch(baseUrl+"/picture/add", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify(pic)
+          })
+          var data= await res.json();
+return data
     }
